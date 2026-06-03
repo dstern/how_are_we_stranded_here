@@ -1,4 +1,3 @@
-
 import numpy as np
 import argparse
 
@@ -15,6 +14,11 @@ def main():
     previous_transcript_id = ''
 
     out_bed = open(args.bed, 'w')
+
+    seqname = ''
+    strand = ''
+    starts = []
+    ends = []
 
     def write_bed_line():
         starts_array = np.array(starts)

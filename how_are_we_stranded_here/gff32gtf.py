@@ -5,6 +5,7 @@ import pandas as pd
 import csv
 import argparse
 import os
+import sys
 
 def main():
     parser = argparse.ArgumentParser(description='Convert a GFF3 file to basic GTF format')
@@ -39,6 +40,9 @@ def main():
     # remove rows that are chromosomes, or CDS/UTR annotations. We don't need these ATM
     gff3 = gff3[~gff3.type.isin(['CDS', 'cds', 'chromosome', 'five_prime_utr', 'three_prime_utr', 'five_prime_UTR', 'three_prime_UTR'])]
 
+    # Ensure attributes column is string type (fixes pandas .str accessor errors)
+    gff3['attributes'] = gff3['attributes'].astype(str)
+    
     # what does the attributes col start with?
     starts_with = gff3.attributes.str.split(":").str[0]
 
