@@ -33,8 +33,8 @@ def main():
             if os.path.isfile(output_path):
                 os.remove(output_path)
 
-    # read in gff
-    gff3 = pd.read_csv(input_file, sep='\t', comment="#", header=None)
+    # read in gff (low_memory=False avoids pandas DtypeWarning for mixed types in columns)
+    gff3 = pd.read_csv(input_file, sep='\t', comment="#", header=None, low_memory=False)
     gff3.columns = ['seqid', 'source', 'type', 'start', 'end', 'score', 'strand', 'phase', 'attributes']
 
     # remove rows that are chromosomes, or CDS/UTR annotations. We don't need these ATM

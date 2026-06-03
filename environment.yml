@@ -1,5 +1,6 @@
 # Conda environment file for how_are_we_stranded_here
-# Install with: conda env create -f environment.yml
+# Install with: mamba env create -f environment.yml
+# Or: conda env create -f environment.yml
 
 name: stranded_here
 channels:
@@ -10,8 +11,8 @@ dependencies:
   - python=3.9
   - numpy
   - pandas
-  - rseqc
   - kallisto>=0.44.0
+  - rseqc  # Must be from bioconda to get infer_experiment.py in PATH
   - pip
   - pip:
-    - -e .
+    - git+https://github.com/dstern/how_are_we_stranded_here.git
