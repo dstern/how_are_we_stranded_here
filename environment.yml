@@ -1,0 +1,17 @@
+# Conda environment file for how_are_we_stranded_here
+# Install with: conda env create -f environment.yml
+
+name: stranded_here
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - rseqc
+  - kallisto>=0.44.0
+  - pip
+  - pip:
+    - -e .

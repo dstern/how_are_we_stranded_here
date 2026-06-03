@@ -1,4 +1,8 @@
-# List required packages in this file, one per line.
-numpy
-pandas
-RSeQC
+# Core dependencies with version constraints for stability
+numpy>=1.16.0,<2.0.0
+pandas>=0.24.0,<3.0.0
+RSeQC>=4.0.0
+
+# Note: kallisto (>=0.44.0) must be installed separately
+# It is not available via pip. Install from:
+# https://pachterlab.github.io/kallisto/download

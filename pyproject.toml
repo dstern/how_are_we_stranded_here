@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "versioneer[toml]==0.28"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "how_are_we_stranded_here"
+version = "1.0.0"
+description = "Python package for testing strandedness of RNA-Seq fastq files"
+readme = "README.rst"
+requires-python = ">=3.6"
+license = {text = "MIT"}
+authors = [{name = "Beth Signal", email = "beth.signal@gmail.com"}]
+keywords = ["RNA-Seq", "strandedness", "kallisto"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "numpy>=1.16.0,<2.0.0",
+    "pandas>=0.24.0,<3.0.0",
+    "RSeQC>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/signalbash/how_are_we_stranded_here"
+Repository = "https://github.com/signalbash/how_are_we_stranded_here.git"
+Issues = "https://github.com/signalbash/how_are_we_stranded_here/issues"
+
+[project.scripts]
+check_strandedness = "how_are_we_stranded_here.check_strandedness:main"
+gtf2bed = "how_are_we_stranded_here.gtf2bed:main"
+gff32gtf = "how_are_we_stranded_here.gff32gtf:main"
+
+[tool.setuptools]
+packages = ["how_are_we_stranded_here"]
